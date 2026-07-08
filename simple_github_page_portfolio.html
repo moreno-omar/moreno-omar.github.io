@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omar Moreno Duran | Portfolio</title>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+
+  <style>
+    /* A single clean media query to handle the 25% column layout strictly on desktop displays */
+    @media (min-width: 768px) {
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: minmax(200px, 25%) 1fr;
+        gap: 3rem;
+        align-items: start;
+      }
+    }
+    
+    /* Minor utility adjustment for a cleaner outline link presentation */
+    .outline.small {
+      padding: 0.25rem 0.75rem;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" style="padding-top: 2rem;">
+    
+    <div class="portfolio-grid">
+      
+      <section id="sidebar-panel">
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <img src="https://picsum.photos/100" alt="Profile" style="border-radius: 50%; width: 100px; height: 100px;">
+          <h3 style="margin-top: 0.5rem; margin-bottom: 0;">Omar Moreno Duran</h3>
+          <p><small class="muted">Lead Software Engineer</small></p>
+        </div>
+
+        <nav>
+          <ul style="flex-direction: column; align-items: stretch; padding: 0; margin: 0;">
+            <li><a href="#" class="secondary"><strong>HOME</strong></a></li>
+            <li><a href="https://www.linkedin.com/in/morenoduran" target="_blank" rel="noopener noreferrer" class="secondary">LINKEDIN</a></li>
+            <li><a href="#" class="secondary">ABOUT</a></li>
+          </ul>
+        </nav>
+      </section>
+
+      <main id="main-content">
+        
+        <!-- Project 1: LLM Orchestration & Knowledge Base Management -->
+        <article>
+          <header>
+            <h2 style="margin-bottom: 0.25rem;">
+              <a href="https://github.com/moreno-omar/llm_with_obsidian" target="_blank" rel="noopener noreferrer">
+                LLM Integration with Obsidian
+              </a>
+            </h2>
+            <small class="muted">AI Orchestration • Python • Local Knowledge Bases</small>
+          </header>
+          <p>
+            An intelligent pipeline designed to bridge large language models directly with local markdown-driven knowledge repositories. This system streamlines data extraction and context-aware querying, demonstrating clean integration patterns for custom AI workflows and structured retrieval-augmented systems.
+          </p>
+          <footer>
+            <a href="https://github.com/moreno-omar/llm_with_obsidian" target="_blank" rel="noopener noreferrer" class="outline small">View Repository →</a>
+          </footer>
+        </article>
+
+        <!-- Project 2: High-Performance Backend Architectures -->
+        <article>
+          <header>
+            <h2 style="margin-bottom: 0.25rem;">
+              <a href="https://github.com/moreno-omar/fastapi_min" target="_blank" rel="noopener noreferrer">
+                FastAPI Minimal Architecture
+              </a>
+            </h2>
+            <small class="muted">Backend Development • FastAPI • Microservices</small>
+          </header>
+          <p>
+            A production-ready blueprint focusing on a lean, high-performance configuration for FastAPI microservices. Optimized for rapid deployment, absolute minimal runtime overhead, and structured resource utilization, making it an excellent baseline for scalable backend systems.
+          </p>
+          <footer>
+            <a href="https://github.com/moreno-omar/fastapi_min" target="_blank" rel="noopener noreferrer" class="outline small">View Repository →</a>
+          </footer>
+        </article>
+
+        <!-- Project 3: Client/Service Applications & Dynamic Routing -->
+        <article>
+          <header>
+            <h2 style="margin-bottom: 0.25rem;">
+              <a href="https://github.com/moreno-omar/travel_adventures" target="_blank" rel="noopener noreferrer">
+                Travel Adventures Platform
+              </a>
+            </h2>
+            <small class="muted">Web Application • Architecture Demo • Service Routing</small>
+          </header>
+          <p>
+            An application demo tracking and structuring user listings and service-operator workflows. Engineered to deliver quick routing pipelines, clean relational tracking, and lightweight rendering while prioritizing seamless client accessibility and efficient state tracking.
+          </p>
+          <footer>
+            <a href="https://github.com/moreno-omar/travel_adventures" target="_blank" rel="noopener noreferrer" class="outline small">View Repository →</a>
+          </footer>
+        </article>
+
+      </main>
+
+    </div>
+  </div>
+
+</body>
+</html>
