@@ -1,2 +1,3 @@
 # moreno-omar.github.io
-Portfolio set with html5 and css
+- Portfolio set with html5 and css
+- No javascript needed.
