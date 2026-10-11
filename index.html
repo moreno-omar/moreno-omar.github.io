@@ -23,6 +23,192 @@
       padding: 0.25rem 0.75rem;
       font-size: 0.85rem;
     }
+    /* Skills strip: 3 per row on small screens, 5 across from 768px */
+    .skills {
+      margin-top: 3.5rem;
+      border-top: 1px solid rgba(128, 128, 128, 0.25);
+      padding-top: 2rem;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem 1rem;
+      align-items: start;
+      justify-items: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .skills-grid li {
+      text-align: center;
+    }
+    .skills-grid img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      /* Several brand marks are near-black; the halo keeps them readable on #01040F. */
+      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+    }
+    .skills-grid span {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      line-height: 1.2;
+    }
+    @media (min-width: 768px) {
+      .skills-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 2rem 1.5rem;
+      }
+      .skills-grid img {
+        width: 56px;
+        height: 56px;
+      }
+    }
+
+
+    /* --- compact layout --- */
+    .container {
+      padding-top: 1rem;
+    }
+    /* sidebar */
+    #sidebar-panel img {
+      width: 64px !important;
+      height: 64px !important;
+    }
+    #sidebar-panel > div {
+      margin-bottom: 1rem !important;
+    }
+    #sidebar-panel h3 {
+      font-size: 1.1rem;
+    }
+    #sidebar-panel p {
+      margin-bottom: 0.25rem;
+    }
+    /* project cards */
+    article {
+      margin-bottom: 0.9rem;
+    }
+    article h2 {
+      font-size: 1.15rem;
+      line-height: 1.25;
+    }
+    article > header {
+      margin-bottom: 0.4rem;
+    }
+    article p {
+      font-size: 0.85rem;
+      line-height: 1.35;
+      margin-bottom: 0.4rem;
+    }
+    article small {
+      font-size: 0.72rem;
+    }
+    .outline.small {
+      padding: 0.15rem 0.55rem;
+      font-size: 0.72rem;
+    }
+    /* skills */
+    .skills {
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+    }
+    .skills h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.75rem !important;
+    }
+    .skills-grid {
+      gap: 0.9rem 0.75rem;
+    }
+    .skills-grid img {
+      width: 40px;
+      height: 40px;
+    }
+    .skills-grid span {
+      margin-top: 0.25rem;
+      font-size: 0.68rem;
+    }
+    @media (min-width: 768px) {
+      .skills-grid {
+        gap: 1.1rem 1rem;
+      }
+      .skills-grid img {
+        width: 44px;
+        height: 44px;
+      }
+    }
+    /* On wide screens let the cards flow two-up, which is where most of the
+       height comes from: five stacked cards become three rows. */
+
+    /* --- skills in the sidebar column --- */
+    @media (min-width: 768px) {
+      .portfolio-grid {
+        grid-template-areas:
+          "sidebar main"
+          "skills  main";
+        grid-template-rows: auto 1fr;
+        row-gap: 1.75rem;
+      }
+      #sidebar-panel {
+        grid-area: sidebar;
+      }
+      #main-content {
+        grid-area: main;
+      }
+      .skills {
+        grid-area: skills;
+        align-self: start;
+      }
+    }
+    /* the strip lives in a narrow column now, so drop the full-width styling */
+    .skills {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+    .skills h3 {
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem !important;
+    }
+    .skills-grid {
+      /* 2-4 per row: three in the sidebar column, four once it is wide enough */
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.7rem 0.4rem;
+    }
+    @media (min-width: 1280px) {
+      .skills-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    .skills-grid img {
+      width: 38px;
+      height: 38px;
+    }
+    .skills-grid span {
+      font-size: 0.62rem;
+      line-height: 1.15;
+    }
+    /* phone: the section is at the end of the stack, full width */
+    @media (max-width: 767px) {
+      .skills {
+        margin-top: 2rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid rgba(128, 128, 128, 0.25);
+      }
+      .skills-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem 0.75rem;
+      }
+      .skills-grid img {
+        width: 44px;
+        height: 44px;
+      }
+      .skills-grid span {
+        font-size: 0.7rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -50,7 +236,26 @@
 
       <main id="main-content">
         
-        <!-- Project 1: LLM Orchestration & Knowledge Base Management -->
+        <!-- Project 1: MCP server exposing an Obsidian vault to LLM hosts -->
+        <article>
+          <header>
+            <h2 style="margin-bottom: 0.25rem;">
+              <a href="https://github.com/moreno-omar/mcp_obsidian" target="_blank" rel="noopener noreferrer">
+                mcp-obsidian : Obsidian Retrieval over MCP
+              </a>
+            </h2>
+            <small class="muted">Rust • MCP Server • Published on crates.io</small>
+          </header>
+          <p>
+            A read-only Model Context Protocol server that indexes a local Obsidian vault and answers from it deterministically: by tag, by full-text term, by wikilink-graph proximity, and by exact note. No embeddings and no model sit in the retrieval path, so the same vault plus the same query always returns the same result, and every hit cites the tag, term or link that matched it. Speaks stdio to desktop hosts and Streamable HTTP to remote ones, installs with <code>cargo install mcp-obsidian</code>, and ships as an MCPB bundle.
+          </p>
+          <footer>
+            <a href="https://github.com/moreno-omar/mcp_obsidian" target="_blank" rel="noopener noreferrer" class="outline small">View Repository →</a>
+            <a href="https://crates.io/crates/mcp-obsidian" target="_blank" rel="noopener noreferrer" class="outline small" style="margin-left: 0.5rem;">crates.io</a>
+          </footer>
+        </article>
+
+        <!-- Project 2: LLM Orchestration & Knowledge Base Management -->
         <article>
           <header>
             <h2 style="margin-bottom: 0.25rem;">
@@ -68,7 +273,7 @@
           </footer>
         </article>
 
-        <!-- Project 2: High-Performance Backend Architectures -->
+        <!-- Project 3: High-Performance Backend Architectures -->
         <article>
           <header>
             <h2 style="margin-bottom: 0.25rem;">
@@ -86,7 +291,7 @@
           </footer>
         </article>
 
-        <!-- Project 3: Client/Service Applications & Dynamic Routing -->
+        <!-- Project 4: Client/Service Applications & Dynamic Routing -->
         <article>
           <header>
             <h2 style="margin-bottom: 0.25rem;">
@@ -104,7 +309,7 @@
           </footer>
         </article>
         
-        <!-- Project 4: Fallow : simple dark mode pdf viewer -->
+        <!-- Project 5: Fallow : simple dark mode pdf viewer -->
         <article>
           <header>
             <h2 style="margin-bottom: 0.25rem;">
@@ -122,6 +327,72 @@
           </footer>
         </article>
       </main>
+
+      <section class="skills" aria-labelledby="skills-heading">
+        <h3 id="skills-heading" style="margin-bottom: 1.25rem;">Skills</h3>
+        <ul class="skills-grid">
+          <li>
+            <img src="https://thesvg.org/icons/python/default.svg" alt="" width="48" height="48" loading="lazy">
+            <span>Python</span>
+          </li>
+          <li>
+            <img src="https://thesvg.org/icons/rust/default.svg" alt="" width="48" height="48" loading="lazy">
+            <span>Rust</span>
+          </li>
+          <li>
+            <img src="https://thesvg.org/icons/postgresql/default.svg" alt="" width="48" height="48" loading="lazy">
+            <span>PostgreSQL</span>
+          </li>
+          <li>
+            <img src="https://thesvg.org/icons/django/default.svg" alt="" width="48" height="48" loading="lazy">
+            <span>Django</span>
+          </li>
+          <li>
+            <img src="https://thesvg.org/icons/sqlite/default.svg" alt="" width="48" height="48" loading="lazy">
+            <span>SQLite</span>
+          </li>
+          <li>
+            <img src="https://thesvg.org/icons/lua/default.svg" alt="" width="48" height="48" loading="lazy">
+            <span>Lua</span>
+          </li>
+          <li>
+            <img src="https://thesvg.org/icons/git/default.svg" alt="" width="48" height="48" loading="lazy">
+            <span>Git</span>
+          </li>
+          <li>
+            <img src="https://thesvg.org/icons/google-cloud/default.svg" alt="" width="48" height="48" loading="lazy">
+            <span>Google Cloud</span>
+          </li>
+          <li>
+            <img src="https://thesvg.org/icons/fastapi/default.svg" alt="" width="48" height="48" loading="lazy">
+            <span>FastAPI</span>
+          </li>
+          <li>
+            <img src="https://thesvg.org/icons/html5/default.svg" alt="" width="48" height="48" loading="lazy">
+            <span>HTML5</span>
+          </li>
+          <li>
+            <img src="https://thesvg.org/icons/htmx/default.svg" alt="" width="48" height="48" loading="lazy">
+            <span>htmx</span>
+          </li>
+          <li>
+            <img src="https://thesvg.org/icons/docker/default.svg" alt="" width="48" height="48" loading="lazy">
+            <span>Docker</span>
+          </li>
+          <li>
+            <img src="https://thesvg.org/icons/podman/default.svg" alt="" width="48" height="48" loading="lazy">
+            <span>Podman</span>
+          </li>
+          <li>
+            <img src="https://thesvg.org/icons/qt/default.svg" alt="" width="48" height="48" loading="lazy">
+            <span>Qt</span>
+          </li>
+          <li>
+            <img src="https://thesvg.org/icons/tensorflow/default.svg" alt="" width="48" height="48" loading="lazy">
+            <span>TensorFlow</span>
+          </li>
+        </ul>
+      </section>
 
     </div>
   </div>
